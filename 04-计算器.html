@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+  写一个简易计算器:用户可以选择'1.加法运算;2.减法运算;3乘法运算;4.除法运算;5.退出'
+ -->
+</body>
+<script>
+    var i = parseFloat(prompt('请输入第一个数'))
+    var j = parseFloat(prompt('请输入第二个数'))
+    var str = prompt('请输入运算符')
+    switch (str) {
+        case "+":
+            alert(i + j)
+            break
+        case "-":
+            alert(i - j)
+            break
+        case "*":
+            alert(i * j)
+        case "/":
+            if (j == 0) {
+                alert('被除数不能为0')
+                break
+            } else {
+                alert(i / j)
+                break
+            }
+    }
+</script>
+
+</html>

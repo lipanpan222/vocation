@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<!-- 
+     1、 字符串的长度
+     2、 取出指定位置的字符，如：0,3,5,9等 
+     3、 查找指定字符是否在以上字符串中存在，如：i，c ，b等 
+     4、 替换指定的字符，如：g替换为22,ss替换为b等操作方法 
+     5、 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+     6、 找出以上字符串中出现次数最多的字符和出现的次数 
+     7、 遍历字符串，并将遍历出的字符两头添加符号“@”
+ -->
+<script>
+    var str = 'abaasdffggghhjjkkgfddsssss3444343'
+    console.log(str.length)
+    console.log(str[0], str[3], str.charAt(5), str.charAt(9))
+        //indexOf是检测某个字符出现在字符串中首次出现的位置,将对应的索引返回, 不再进行查找,如果检测不到结果为-1
+    console.log(str.indexOf('i'))
+    console.log(str.indexOf('c'))
+    console.log(str.indexOf('b'))
+        //replace('需要被替换的元素','替换的字符') 只要碰见第一个元素,就不再往后查找替换了
+    for (var i = 0; i < str.length; i++) {
+        str = str.replace('g', '22')
+            // str = str.replace('ss', 'b')
+    }
+    // 正则替换  g全局 i忽略大小写
+    console.log(str.replace(/ss/ig, 'b'))
+
+    // substr(开始截取的索引,截取的个数) 如果只传递第一个参数,直接截取到最后
+    //  substring(开始截取的索引,结束截取的索引)
+    console.log(str.substr(1, 5))
+
+    var obj = {}
+        // 遍历字符串, 检测一个空对象中有没有某个属性,如果没有就手动设置这个属性,设置值1 , 如果有这个属性, 就让他对应的值+1
+    for (var i = 0; i < str.length; i++) {
+        var temp = str[i]
+            // 检测一个空对象中有没有某个属性,如果没有就手动设置这个属性,设置值1 , 如果有这个属性, 就让他对应的值+1
+        if (obj[temp]) {
+            obj[temp]++;
+        } else {
+            obj[temp] = 1
+        }
+    }
+    var max = 0
+    var charmax
+    for (var k in obj) {
+        if (obj[k] > max) {
+            max = obj[k]
+            charmax = k
+        }
+    }
+    // console.log(obj)
+    console.log(charmax + '出现次数最多', max + '次', )
+</script>
+
+</html>

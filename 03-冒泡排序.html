@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 将一组数组按照(从小到大或者从大到小的顺序排列):例:[2,4,1,22,15,56,90,23,4,1] -->
+</body>
+<script>
+    var arr = [2, 4, 1, 22, 15, 56, 90, 23, 4, 1]
+    var temp
+        // var newArr = []
+    for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < arr.length - 1; j++) {
+            //从小到大 每次会把最大的值放最后
+            if (arr[j + 1] < arr[j]) {
+                temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+            }
+        }
+    }
+    console.log(arr)
+</script>
+
+</html>

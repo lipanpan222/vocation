@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul {
+        position: relative;
+        width: 500px;
+        left: 680px;
+        top: 300px;
+    }
+    
+    li {
+        display: inline-block;
+        list-style: none;
+        width: 40px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background-color: #ccc;
+    }
+</style>
+
+<body>
+    <!-- 
+    写一个距离2021年5月1日的倒计时,在页面显示: 还剩xx天:xx时:xx分:xx秒
+   -->
+    <ul>
+        <li class="d"></li>
+        <li>天</li>
+        <li class="h"></li>
+        <li>小时</li>
+        <li class="m"></li>
+        <li>分</li>
+        <li class="s"></li>
+    </ul>
+</body>
+<script>
+    var ul = document.querySelector('ul')
+    var day = ul.children[0]
+    var hour = ul.children[2]
+    var minute = ul.children[4]
+    var second = ul.children[6]
+
+    var end = +new Date('2021-05-01 00:00:00')
+
+    countDown()
+        // 2. 注册 setInterval 定时器
+    setInterval(countDown, 1000)
+
+    function countDown() {
+        var now = Date.now()
+        var time = end - now
+        var d = parseInt(time / 1000 / 3600 / 24)
+        var h = parseInt(time / 1000 / 3600 % 24).toString().padStart(2, 0)
+        var m = parseInt(time / 1000 / 60 % 60).toString().padStart(2, 0)
+        var s = parseInt(time / 1000 % 60).toString().padStart(2, 0)
+
+        day.innerHTML = d
+        hour.innerHTML = h
+        minute.innerHTML = m
+        second.innerHTML = s
+
+    }
+</script>
+
+</html>
